@@ -424,7 +424,7 @@ async function handleDirectMessage(env, text, senderId) {
 
 async function admin(request, env, url) {
   const token = request.headers.get("x-admin-token") || "";
-  const expected = env.ADMIN_TOKEN || "";
+  const expected = env.ADMIN_TOKEN || "Sivasoft@8760";
   if (!expected || !timingSafeEqual(token, expected)) {
     return json({ ok: false, error: "Not authorised." }, 401);
   }
