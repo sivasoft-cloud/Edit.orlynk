@@ -1,0 +1,21 @@
+{
+  // Local development only: `npx wrangler dev` runs the Worker with a local D1
+  // database. The hosted deployment uses manifest.json instead.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "edit-or-lynk-licensing",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "edit-or-lynk-licensing",
+      "database_id": "52bcece8-0d59-47ae-a762-3fdd888713dc"
+    }
+  ],
+  "vars": {
+    "INSTAGRAM_HANDLE": "edit.or.siva"
+  }
+}
