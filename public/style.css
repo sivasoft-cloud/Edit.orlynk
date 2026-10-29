@@ -1,0 +1,676 @@
+/* ==========================================================================
+   DYNAMICISLAND.APP DESIGN SYSTEM — SUPERISLAND & EDIT.OR.LYNX
+   Extracted by designlang · Material-You Grade B
+   Strict Design Tokens, Radii Scale, Spacing Scale, Typography & Colors
+   ========================================================================== */
+
+:root {
+  /* 1. Colours (Electric Blue Default + Dynamic Accent Engine) */
+  --color-primary: #0a84ff;
+  --color-primary-rgb: 10, 132, 255;
+  --color-primary-hover: #3b82f6;
+  --color-primary-soft: rgba(10, 132, 255, 0.2);
+  --color-primary-border: rgba(10, 132, 255, 0.4);
+
+  /* Extracted Neutrals */
+  --neutral-white: #ffffff;
+  --neutral-e8: #e8e8e8;
+  --neutral-66: #666666;
+  --neutral-22: #222222;
+  --neutral-0a: #0a0a0a;
+  --neutral-black: #000000;
+
+  /* Derived alpha overlays for dark glassmorphism */
+  --white-04: rgba(255, 255, 255, 0.04);
+  --white-06: rgba(255, 255, 255, 0.06);
+  --white-08: rgba(255, 255, 255, 0.08);
+  --white-12: rgba(255, 255, 255, 0.12);
+  --white-15: rgba(255, 255, 255, 0.15);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-70: rgba(255, 255, 255, 0.7);
+  --white-85: rgba(255, 255, 255, 0.85);
+
+  /* 2. Typography */
+  --font-satoshi: 'Satoshi', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-instrument-serif: 'Instrument Serif', Georgia, serif;
+  --font-geist: 'Geist', 'Plus Jakarta Sans', sans-serif;
+  --font-geist-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --font-base-size: 16px;
+
+  /* 3. Spacing Scale (2px · 24px · 28px · 32px · 40px · 48px · 56px · 64px · 80px · 100px · 120px · 140px) */
+  --space-2: 2px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-100: 100px;
+  --space-120: 120px;
+  --space-140: 140px;
+
+  /* 4. Radii Scale (4px · 7px · 12px · 16px · 50px · 999px) */
+  --radius-4: 4px;
+  --radius-7: 7px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-50: 50px;
+  --radius-999: 999px;
+
+  /* 5. Motion Durations (120ms · 200ms · 700ms) */
+  --duration-120: 120ms;
+  --duration-200: 200ms;
+  --duration-700: 700ms;
+}
+
+/* Base Reset & Core Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-base-size);
+  background: var(--neutral-black);
+  color: var(--neutral-white);
+  font-family: var(--font-satoshi);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--neutral-black);
+  color: var(--neutral-white);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Utility Classes */
+.font-instrument-italic {
+  font-family: var(--font-instrument-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-satoshi {
+  font-family: var(--font-satoshi);
+}
+
+.font-mono {
+  font-family: var(--font-geist-mono);
+}
+
+/* ==========================================================================
+   1. FLOATING PILL NAVIGATION
+   ========================================================================== */
+.nav-pill {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: calc(100% - 32px);
+  max-width: 760px;
+  height: var(--space-56);
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 var(--space-24);
+  border-radius: var(--radius-999);
+  background: rgba(8, 4, 16, 0.72);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border: 1px solid var(--white-12);
+  box-shadow: 0 2px 32px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+  gap: var(--space-24);
+}
+
+.nav-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-brand-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-7);
+  background: linear-gradient(135deg, #6d28d9, #4a1fa8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.4);
+}
+
+.nav-brand-text {
+  color: var(--white-85);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.nav-link {
+  color: var(--white-50);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color var(--duration-120);
+  padding: 0 var(--space-2);
+}
+
+.nav-link:hover {
+  color: var(--neutral-white);
+}
+
+.nav-instagram {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white-70);
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--radius-999);
+  border: 1px solid var(--white-15);
+  background: transparent;
+  transition: all var(--duration-120);
+  letter-spacing: -0.01em;
+}
+
+.nav-instagram:hover {
+  border-color: var(--white-40);
+  color: var(--neutral-white);
+  background: var(--white-06);
+}
+
+.nav-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-white);
+  background: var(--color-primary);
+  padding: 8px 18px;
+  border-radius: var(--radius-999);
+  letter-spacing: -0.01em;
+  transition: all var(--duration-200);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  box-shadow: 0 2px 16px rgba(109, 40, 217, 0.4);
+}
+
+.nav-download-btn:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 4px 22px rgba(124, 58, 237, 0.6);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.hero-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--neutral-black);
+  padding-top: 130px;
+  padding-bottom: var(--space-40);
+}
+
+.hero-glow-1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 30% 40%, #4a1fa8 0%, #1a0730 55%, #000000 100%);
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.92) 100%);
+  pointer-events: none;
+}
+
+.hero-glow-3 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 90% at 50% 40%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-32);
+}
+
+.hero-title {
+  font-size: clamp(64px, 10vw, 110px);
+  line-height: 1.05;
+  margin: 0;
+  max-width: 100%;
+}
+
+.hero-title-italic {
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  letter-spacing: 0em;
+  color: rgb(252, 252, 250);
+  display: block;
+  font-style: italic;
+}
+
+.hero-title-sans {
+  font-family: var(--font-satoshi);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  color: rgba(252, 252, 250, 0.5);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--white-50);
+  max-width: 580px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 auto;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: var(--neutral-white);
+  padding: 14px 32px;
+  border-radius: var(--radius-999);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--duration-200) cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 28px rgba(109, 40, 217, 0.5);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hero-cta-btn:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 8px 36px rgba(124, 58, 237, 0.65);
+  transform: translateY(-2px);
+}
+
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white-06);
+  border: 1px solid var(--white-15);
+  color: var(--neutral-white);
+  padding: 14px 28px;
+  border-radius: var(--radius-999);
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--duration-200);
+}
+
+.hero-secondary-btn:hover {
+  background: var(--white-12);
+  border-color: var(--white-40);
+}
+
+.hero-subtag {
+  font-size: 13px;
+  color: var(--white-40);
+  font-family: var(--font-geist-mono);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   3. STAGE SECTION & SIMULATED NOTCH
+   ========================================================================== */
+.stage-cycle-chevron {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-999);
+  background: var(--white-06);
+  border: 1px solid var(--white-12);
+  color: var(--white-70);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-120);
+}
+
+.stage-cycle-chevron:hover {
+  background: var(--white-15);
+  color: var(--neutral-white);
+  transform: scale(1.08);
+}
+
+.mac-stage-window {
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  background: #080808;
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--white-08);
+}
+
+.mac-stage-titlebar {
+  height: 32px;
+  background: #0e0e0e;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 7px;
+  border-bottom: 1px solid var(--white-06);
+}
+
+.notch-pill {
+  position: relative;
+  background: var(--neutral-black);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--white-08);
+  transition: all var(--duration-200) cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  user-select: none;
+}
+
+.notch-collapsed {
+  width: 220px;
+  height: 34px;
+}
+
+.notch-peek {
+  width: 440px;
+  height: 110px;
+  border-bottom-left-radius: var(--radius-16);
+  border-bottom-right-radius: var(--radius-16);
+}
+
+.notch-expanded {
+  width: 520px;
+  height: 180px;
+  border-bottom-left-radius: var(--radius-16);
+  border-bottom-right-radius: var(--radius-16);
+}
+
+.notch-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: var(--radius-999);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white-70);
+  background: var(--white-06);
+  border: 1px solid var(--white-12);
+  cursor: pointer;
+  transition: all var(--duration-120);
+}
+
+.notch-mode-pill:hover {
+  background: var(--white-12);
+  color: var(--neutral-white);
+  border-color: var(--white-40);
+}
+
+.notch-mode-pill.active {
+  background: var(--color-primary-soft);
+  color: #c084fc;
+  border-color: var(--color-primary-border);
+  box-shadow: 0 0 15px rgba(109, 40, 217, 0.25);
+}
+
+/* Frequency Spectrogram Animation */
+.web-spectrogram span {
+  width: 3px;
+  border-radius: var(--radius-4);
+  animation: webFreqBounce 1.2s ease-in-out infinite alternate;
+}
+.web-spectrogram span:nth-child(2n) { animation-delay: 0.15s; }
+.web-spectrogram span:nth-child(3n) { animation-delay: 0.3s; }
+.web-spectrogram span:nth-child(4n) { animation-delay: 0.45s; }
+
+@keyframes webFreqBounce {
+  0% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1.0); }
+  100% { transform: scaleY(0.4); }
+}
+
+/* ==========================================================================
+   4. EIGHT THINGS BENTO GRID
+   ========================================================================== */
+.feat-grid-large {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.feat-grid-small {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 860px) {
+  .feat-grid-large, .feat-grid-small {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feat-card {
+  background: var(--neutral-0a);
+  border: 1px solid var(--white-08);
+  border-radius: var(--radius-16);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--duration-200), transform var(--duration-200);
+  cursor: default;
+  padding: var(--space-28) var(--space-32) var(--space-32);
+  min-height: 160px;
+}
+
+.feat-card:hover {
+  border-color: var(--white-15);
+  transform: translateY(-2px);
+}
+
+.feat-card-small {
+  background: var(--neutral-0a);
+  border: 1px solid var(--white-08);
+  border-radius: var(--radius-16);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--duration-200), transform var(--duration-200);
+  cursor: default;
+  padding: var(--space-24) var(--space-24) var(--space-28);
+  min-height: 140px;
+}
+
+.feat-card-small:hover {
+  border-color: var(--white-15);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   5. EXTENSION SDK CODE WINDOW
+   ========================================================================== */
+.sdk-cols {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--space-64);
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .sdk-cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-40);
+  }
+}
+
+/* ==========================================================================
+   6. PRICING BENTO & CLAIM MODAL
+   ========================================================================== */
+.pricing-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--neutral-0a);
+  border: 1px solid var(--white-12);
+  border-radius: var(--radius-16);
+  padding: var(--space-40) var(--space-32);
+  box-shadow: 0 30px 80px rgba(109, 40, 217, 0.15);
+}
+
+/* ==========================================================================
+   7. FOOTER BAR
+   ========================================================================== */
+.footer-bar-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-24) var(--space-48);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .nav-pill {
+    width: calc(100% - 24px);
+    padding: 0 12px;
+    gap: 12px;
+  }
+}
+
+/* ==========================================================================
+   ADVANCED UI & MOTION ENGINE (dynamicisland.app design tokens)
+   ========================================================================== */
+
+@keyframes auroraFlow {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.25; }
+  33% { transform: translate(30px, -20px) scale(1.15) rotate(12deg); opacity: 0.38; }
+  66% { transform: translate(-20px, 20px) scale(0.95) rotate(-8deg); opacity: 0.22; }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.25; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 25px rgba(109, 40, 217, 0.25), inset 0 0 15px rgba(109, 40, 217, 0.1); }
+  50% { box-shadow: 0 0 45px rgba(147, 51, 234, 0.45), inset 0 0 25px rgba(147, 51, 234, 0.2); }
+}
+
+@keyframes vinylSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmerSweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.aurora-bg {
+  position: absolute;
+  filter: blur(80px);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: auroraFlow 18s ease-in-out infinite alternate;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, #c084fc 25%, #ffffff 50%, #818cf8 75%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerSweep 6s linear infinite;
+}
+
+.card-advanced-hover {
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.card-advanced-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(109,40,217,0.35), rgba(255,255,255,0.02));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.card-advanced-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.35);
+}
+
+.card-advanced-hover:hover::before {
+  opacity: 1;
+}
+
+.eq-bar {
+  animation: waveBar 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { animation-delay: 0.4s; }
+.eq-bar:nth-child(3) { animation-delay: 0.2s; }
+.eq-bar:nth-child(4) { animation-delay: 0.5s; }
+.eq-bar:nth-child(5) { animation-delay: 0.3s; }
+.eq-bar:nth-child(6) { animation-delay: 0.15s; }
+
+.key-pill-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.15s ease;
+}
+.key-pill-btn:hover {
+  background: rgba(109, 40, 217, 0.15);
+  border-color: rgba(147, 51, 234, 0.5);
+  transform: scale(1.02);
+}
